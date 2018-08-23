@@ -7,7 +7,7 @@ Shlex 是用 C 语言编写的 PHP 扩展。该扩展实现了 python 中 shlex 
 Shlex 令为类似于 Unix shell 的简单语法编写词法分析器更方便。这通常用于编写微语言或用于解析引用的字符串。
 
 # Table of contents
------
+
 1. [Requirement](#requirement)
 1. [Installation](#installation)
    * [Installation on Linux/OSX](#installation-on-linux-or-osx)
@@ -18,41 +18,41 @@ Shlex 令为类似于 Unix shell 的简单语法编写词法分析器更方便�
 1. [Classes and methods](#classes-and-methods)
    * [Shlex](#shlex)
       * [Properties](#shlex-properties)
-		   * [instream](#shlex-instream)
-		   * [infile](#shlex-infile)
-		   * [posix](#shlex-posix)
-		   * [eof](#shlex-eof)
-		   * [commenters](#shlex-commenters)
-		   * [wordchars](#shlex-wordchars)
-		   * [whitespace](#shlex-whitespace)
-		   * [whitespaceSplit](#shlex-whitespace-split)
-		   * [quotes](#shlex-quotes)
-		   * [escape](#shlex-escape)
-		   * [escapedquotes](#shlex-escapedquotes)
-		   * [state](#shlex-state)
-		   * [pushback](#shlex-pushback)
-		   * [lineno](#shlex-lineno)
-		   * [debug](#shlex-debug)
-		   * [token](#shlex-token)
-		   * [filestack](#shlex-filestack)
-		   * [source](#shlex-source)
-		   * [punctuationChars](#shlex-punctuation-chars)
-		   * [_punctuationChars](#shlex-_punctuation-chars)
+       * [instream](#shlex-instream)
+       * [infile](#shlex-infile)
+       * [posix](#shlex-posix)
+       * [eof](#shlex-eof)
+       * [commenters](#shlex-commenters)
+       * [wordchars](#shlex-wordchars)
+       * [whitespace](#shlex-whitespace)
+       * [whitespaceSplit](#shlex-whitespace-split)
+       * [quotes](#shlex-quotes)
+       * [escape](#shlex-escape)
+       * [escapedquotes](#shlex-escapedquotes)
+       * [state](#shlex-state)
+       * [pushback](#shlex-pushback)
+       * [lineno](#shlex-lineno)
+       * [debug](#shlex-debug)
+       * [token](#shlex-token)
+       * [filestack](#shlex-filestack)
+       * [source](#shlex-source)
+       * [punctuationChars](#shlex-punctuation-chars)
+       * [_punctuationChars](#shlex-_punctuation-chars)
       * [Methods](#shlex-methods)
-		   * [Shlex::__construct](#shlex-__construct)
-		   * [Shlex::__destruct](#shlex-__destruct)
-		   * [Shlex::key](#shlex-key)
-		   * [Shlex::next](#shlex-next)
-		   * [Shlex::rewind](#shlex-rewind)
-		   * [Shlex::current](#shlex-current)
-		   * [Shlex::valid](#shlex-valid)
-		   * [Shlex::pushToken](#shlex-push-token)
-		   * [Shlex::pushSource](#shlex-push-source)
-		   * [Shlex::popSource](#shlex-pop-source)
-		   * [Shlex::getToken](#shlex-get-token)
-		   * [Shlex::readToken](#shlex-read-token)
-		   * [Shlex::sourcehook](#shlex-sourcehook)
-		   * [Shlex::errorLeader](#shlex-error-leader)
+       * [Shlex::__construct](#shlex-__construct)
+       * [Shlex::__destruct](#shlex-__destruct)
+       * [Shlex::key](#shlex-key)
+       * [Shlex::next](#shlex-next)
+       * [Shlex::rewind](#shlex-rewind)
+       * [Shlex::current](#shlex-current)
+       * [Shlex::valid](#shlex-valid)
+       * [Shlex::pushToken](#shlex-push-token)
+       * [Shlex::pushSource](#shlex-push-source)
+       * [Shlex::popSource](#shlex-pop-source)
+       * [Shlex::getToken](#shlex-get-token)
+       * [Shlex::readToken](#shlex-read-token)
+       * [Shlex::sourcehook](#shlex-sourcehook)
+       * [Shlex::errorLeader](#shlex-error-leader)
    * [ShlexException](#shlex-exception)
 
 
@@ -75,23 +75,18 @@ make && make install
 
 
 # <span id="functions">Functions</span>
------
-
 
 ### <span id="shlex_split">shlex_split</span>
------
 
 使用类 shell 语法拆分字符串。
 
 ##### Description
--
 
 ```
 array shlex_split( string|resource|null $s [, bool $comments = false [, bool $posix = true ]] )
 ```
 
 ##### Parameters
--
 
 ###### s
 
@@ -111,12 +106,10 @@ array shlex_split( string|resource|null $s [, bool $comments = false [, bool $po
 &nbsp;&nbsp;&nbsp;&nbsp;此函数默认在 POSIX 模式下运行，但如果 posix 参数为 false 则使用非 POSIX 模式。
 
 ##### Return Values
--
 
 返回拆分后的字符串数组。
 
 ##### Examples
--
 
 ```
 <?php
@@ -141,12 +134,10 @@ array(1) {
 <br>
 
 ### <span id="shlex_quote">shlex_quote</span>
------
 
 返回字符串 s 的 shell 转义版本。
 
 ##### Description
--
 
 ```
 string shlex_quote( string $s )
@@ -156,7 +147,6 @@ string shlex_quote( string $s )
 
 
 ##### Parameters
--
 
 ###### s
 
@@ -164,12 +154,10 @@ string shlex_quote( string $s )
 
 
 ##### Return Values
--
 
 返回的值是一个字符串，可以安全地用作 shell 命令行中的一个令牌，用于不能使用列表的情况。
 
 ##### Examples
--
 
 ```
 <?php
@@ -205,24 +193,20 @@ ssh home 'ls -l '"'"'somefile; rm -rf index.php'"'"''
 
 
 # <span id="classes-and-methods">Classes and methods</span>
------
 
 ### <span id="shlex">Shlex</span>
------
 
 ##### Introduction
--
 
 Shlex 实例或子类实例是词法分析器对象。
 
 ##### Class synopsis
--
 
 ```
 Shlex implements Iterator {
-	
-	/* Properties */
-	public resource|null $instream = null;
+  
+  /* Properties */
+  public resource|null $instream = null;
     public string|null $infile = null;
     private bool|null $posix = null;
     public string|null $eof = null;
@@ -242,9 +226,9 @@ Shlex implements Iterator {
     public string|null $source = null;
     public string|null $punctuationChars = null;
     private array|null $_punctuationChars = null;
-	
-	/* Methods */
-	public void function __construct( [ string|resource|null $instream = null [, string|null $infile = null [, bool $posix = false [, string|bool|null $punctuationChars = false ]]]]);
+  
+  /* Methods */
+  public void function __construct( [ string|resource|null $instream = null [, string|null $infile = null [, bool $posix = false [, string|bool|null $punctuationChars = false ]]]]);
 
     public void function __destruct( void );
 
@@ -276,7 +260,6 @@ Shlex implements Iterator {
 
 
 #### <span id="shlex-properties">Properties</span>
--
 
 ###### <span id="shlex-instream">instream</span>
 
@@ -340,24 +323,18 @@ Shlex implements Iterator {
 &nbsp;&nbsp;&nbsp;&nbsp;将被视为标点符号的字符。标点符号的运行将作为单个标记返回。然而，请注意，不会执行语义有效性检查：例如，“>>>” 可以作为令牌返回，即使它可能不被 shell 识别。
 
 ### <span id="shlex-methods">Methods</span>
-----
-
-
 
 ### <span id="shlex-__construct">Shlex::__construct</span>
------
 
 构造函数
 
 ##### Description
--
 
 ```
 public void function Shlex::__construct( [ string|resource|null $instream = null [, string|null $infile = null [, bool $posix = false [, string|bool|null $punctuationChars = false ]]]])
 ```
 
 ##### Parameters
--
 
 ###### instream
 
@@ -376,12 +353,10 @@ public void function Shlex::__construct( [ string|resource|null $instream = null
 &nbsp;&nbsp;&nbsp;&nbsp;punctuationChars 参数提供了一种使行为更接近实际 shell 解析的方式。这可以采取一些值：默认值，false。如果设置为 true，则更改字符 ();<>|& 的解析：将这些字符（被视为标点符号）的任何运行作为单个令牌返回。如果设置为非空字符串，那些字符将用作标点符号。在 punctuationChars 中出现的 wordchars 属性中的任何字符将从 wordchars 中删除。
 
 ##### Return Values
--
 
 无返回值。
 
 ##### Examples
--
 
 ```
 <?php
@@ -391,7 +366,7 @@ $instance = new Shlex("a && b || c", null, false, "|");
 $list = [];
 
 foreach ($instance as $value) {
-	$list[] = $value;
+  $list[] = $value;
 }
 
 var_dump($list);
@@ -422,12 +397,10 @@ array(6) {
 
 
 ### <span id="shlex-__destruct">Shlex::__destruct</span>
------
 
 析构函数
 
 ##### Description
--
 
 ```
 public void function Shlex::__destruct( void )
@@ -437,16 +410,14 @@ public void function Shlex::__destruct( void )
 
 
 ##### Parameters
--
+
 无参数。
 
 ##### Return Values
--
 
 无返回值。
 
 ##### Examples
--
 
 无示例。
 
@@ -454,29 +425,24 @@ public void function Shlex::__destruct( void )
 
 
 ### <span id="shlex-key">Shlex::key</span>
------
 
 只为实现 Iterator 接口的 key 方法，无实际用途。
 
 ##### Description
--
 
 ```
 public void function Shlex::key( void )
 ```
 
 ##### Parameters
--
 
 无参数。
 
 ##### Return Values
--
 
 无返回值。
 
 ##### Examples
--
 
 无示例。
 
@@ -484,29 +450,24 @@ public void function Shlex::key( void )
 
 
 ### <span id="shlex-next">Shlex::next</span>
------
 
 只为实现 Iterator 接口的 next 方法，无实际用途。
 
 ##### Description
--
 
 ```
 public void function Shlex::next( void )
 ```
 
 ##### Parameters
--
 
 无参数。
 
 ##### Return Values
--
 
 无返回值。
 
 ##### Examples
--
 
 无示例。
 
@@ -514,29 +475,24 @@ public void function Shlex::next( void )
 
 
 ### <span id="shlex-rewind">Shlex::rewind</span>
------
 
 只为实现 Iterator 接口的 rewind 方法，无实际用途。
 
 ##### Description
--
 
 ```
 public void function Shlex::rewind( void )
 ```
 
 ##### Parameters
--
 
 无参数。
 
 ##### Return Values
--
 
 无返回值。
 
 ##### Examples
--
 
 无示例。
 
@@ -544,29 +500,24 @@ public void function Shlex::rewind( void )
 
 
 ### <span id="shlex-current">Shlex::current</span>
------
 
 返回 Shlex 本次迭代读取的 token 值。
 
 ##### Description
--
 
 ```
 public string|null function Shlex::current( void )
 ```
 
 ##### Parameters
--
 
 无参数。
 
 ##### Return Values
--
 
 返回 Shlex 本次迭代读取的 token 值。
 
 ##### Examples
--
 
 无示例。
 
@@ -574,24 +525,20 @@ public string|null function Shlex::current( void )
 
 
 ### <span id="shlex-valid">Shlex::valid</span>
------
 
 判断本次迭代是否有效。
 
 ##### Description
--
 
 ```
 public bool function Shlex::valid( void )
 ```
 
 ##### Parameters
--
 
 无参数。
 
 ##### Return Values
--
 
 如果返回 true 则有效，false 则无效。
 
@@ -601,7 +548,6 @@ public bool function Shlex::valid( void )
 ```
 
 ##### Examples
--
 
 无示例。
 
@@ -609,31 +555,26 @@ public bool function Shlex::valid( void )
 
 
 ### <span id="shlex-push-token">Shlex::pushToken</span>
------
 
 将参数推送到令牌堆栈。
 
 ##### Description
--
 
 ```
 public void function Shlex::pushToken( string $tok )
 ```
 
 ##### Parameters
--
 
 ###### tok
 
 &nbsp;&nbsp;&nbsp;&nbsp;被推送的参数。
 
 ##### Return Values
--
 
 无返回值。
 
 ##### Examples
--
 
 无示例。
 
@@ -641,19 +582,16 @@ public void function Shlex::pushToken( string $tok )
 
 
 ### <span id="shlex-push-source">Shlex::pushSource</span>
------
 
 将输入源流推送到输入堆栈。
 
 ##### Description
--
 
 ```
 public void function Shlex::pushSource( string|resource $newstream, string|null $newfile = null );
 ```
 
 ##### Parameters
--
 
 ###### newstream
 
@@ -664,12 +602,10 @@ public void function Shlex::pushSource( string|resource $newstream, string|null 
 &nbsp;&nbsp;&nbsp;&nbsp;如果指定了 filename 参数，它以后将可用于错误消息。这是 sourcehook( ) 方法内部使用的相同方法。
 
 ##### Return Values
--
 
 无返回值。
 
 ##### Examples
--
 
 无示例。
 
@@ -677,29 +613,24 @@ public void function Shlex::pushSource( string|resource $newstream, string|null 
 
 
 ### <span id="shlex-pop-source">Shlex::popSource</span>
------
 
 从输入堆栈弹出最后推入的输入源。这是当词法分析器在堆叠输入流上到达 EOF 时内部使用的相同方法。
 
 ##### Description
--
 
 ```
 public void function Shlex::popSource( void )
 ```
 
 ##### Parameters
--
 
 无参数。
 
 ##### Return Values
--
 
 无返回值。
 
 ##### Examples
--
 
 无示例。
 
@@ -707,29 +638,24 @@ public void function Shlex::popSource( void )
 
 
 ### <span id="shlex-get-token">Shlex::getToken</span>
------
 
 返回令牌。
 
 ##### Description
--
 
 ```
 public string|null|ShlexException function Shlex::getToken( void )
 ```
 
 ##### Parameters
--
 
 无参数。
 
 ##### Return Values
--
 
 返回令牌。如果令牌已使用 pushToken( ) 堆叠，请从堆栈弹出令牌。否则，从输入流中读取一个。如果读取遇到立即文件结束，则返回 eof （在非POSIX模式下为空字符串（''），在POSIX模式下为 null）。
 
 ##### Examples
--
 
 无示例。
 
@@ -737,12 +663,10 @@ public string|null|ShlexException function Shlex::getToken( void )
 
 
 ### <span id="shlex-read-token">Shlex::readToken</span>
------
 
 读取原始令牌。
 
 ##### Description
--
 
 ```
 public string|null|ShlexException function Shlex::readToken( void )
@@ -751,17 +675,14 @@ public string|null|ShlexException function Shlex::readToken( void )
 读取原始令牌。忽略后推堆栈，并且不解释源请求。 （这通常不是一个有用的切入点，在这里只是为了完整性的记录。）
 
 ##### Parameters
--
 
 无参数
 
 ##### Return Values
--
 
 返回原始令牌。
 
 ##### Examples
--
 
 无示例。
 
@@ -769,12 +690,8 @@ public string|null|ShlexException function Shlex::readToken( void )
 
 
 ### <span id="shlex-sourcehook">Shlex::sourcehook</span>
------
-
-
 
 ##### Description
--
 
 ```
 public array function Shlex::sourcehook( string $newfile )
@@ -791,19 +708,16 @@ public array function Shlex::sourcehook( string $newfile )
 为了更明确地控制源堆叠，请使用 pushSource( ) 和 popSource( ) 方法。
 
 ##### Parameters
--
 
 ###### newfile
 
 &nbsp;&nbsp;&nbsp;&nbsp;文件路径。
 
 ##### Return Values
--
 
 返回由文件名和类似打开文件的对象组成的数组。
 
 ##### Examples
--
 
 无示例。
 
@@ -811,12 +725,10 @@ public array function Shlex::sourcehook( string $newfile )
 
 
 ### <span id="shlex-error-leader">Shlex::errorLeader</span>
------
 
 返回类似C编译器，Emacs友好的错误引导信息。
 
 ##### Description
--
 
 ```
 public string function Shlex::errorLeader( string $infile = null, int|null $lineno = null )
@@ -828,7 +740,6 @@ public string function Shlex::errorLeader( string $infile = null, int|null $line
 
 
 ##### Parameters
--
 
 ###### infile
 
@@ -839,12 +750,10 @@ public string function Shlex::errorLeader( string $infile = null, int|null $line
 &nbsp;&nbsp;&nbsp;&nbsp;前输入行号。
 
 ##### Return Values
--
 
 返回类似 C 编译器，Emacs 友好的错误引导信息。
 
 ##### Examples
--
 
 无示例。
 
@@ -852,29 +761,25 @@ public string function Shlex::errorLeader( string $infile = null, int|null $line
 
 
 ### <span id="shlex-exception">ShlexException</span>
------
 
 Shlex的异常类
 
 ##### Introduction
--
 
 该类主要用于 Shlex 类内部执行错误时，抛出的异常。
 
 ##### Class synopsis
--
 
 ```
 ShlexException extends Exception {}
 ```
 
 ##### Examples
--
 
 ```
 <?php
 
-	throw new ShlexException('No escaped character');
+  throw new ShlexException('No escaped character');
 
 ?>
 ```
