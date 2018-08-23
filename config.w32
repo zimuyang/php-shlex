@@ -1,0 +1,9 @@
+// $Id$
+// vim:ft=javascript
+
+ARG_ENABLE("shlex", "enable shlex support", "no");
+
+if (PHP_SHLEX == "yes") {
+	EXTENSION("shlex", "shlex.c", PHP_EXTNAME_SHARED, "/DZEND_ENABLE_STATIC_TSRMLS_CACHE=1");
+}
+

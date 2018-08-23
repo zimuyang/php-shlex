@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.7" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package>
+  <name>shlex</name>
+  <summary>Shlex in PHP extension</summary>
+  <description>
+    Shlex is written in c and built as PHP extension
+  </description>
+  <lead>
+    <name>Hualong Yuan</name>
+    <user>zimuyang</user>
+    <email>zimuyang01@outlook.com</email>
+    <active>yes</active>
+  </lead>
+  <date>2018-08-21</date>
+  <time>19:30:00</time>
+  <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+  </version>
+  <stability>
+    <release>stable</release>
+    <api>stable</api>
+  </stability>
+  <license uri="http://www.php.net/license">PHP</license>
+  <notes>
+
+  </notes>
+  <contents>
+    <dir name="/">
+      <file name="config.m4"    role="src" />
+      <file name="shlex.c" role="src" />
+      <file name="config.w32" role="src" />
+      <file name="LICENSE" role="doc" />
+      <file name="CREDITS" role="doc" />
+      <file name="php_shlex.h" role="src" />
+      <file name="shlex_test.php" role="src" />
+      <dir name="tests">
+        <file name="001.phpt" role="test" />
+        <file name="002.phpt" role="test" />
+        <file name="003.phpt" role="test" />
+        <file name="004.phpt" role="test" />
+        <file name="005.phpt" role="test" />
+        <file name="006.phpt" role="test" />
+        <file name="007.phpt" role="test" />
+        <file name="008.phpt" role="test" />
+        <file name="009.phpt" role="test" />
+        <file name="010.phpt" role="test" />
+        <file name="011.phpt" role="test" />
+        <file name="012.phpt" role="test" />
+        <file name="013.phpt" role="test" />
+        <file name="data" role="test" />
+        <file name="posix_data" role="test" />
+      </dir>
+    </dir>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>7.0.0</min>
+      </php>
+      <pearinstaller>
+        <min>1.4.0</min>
+      </pearinstaller>
+    </required>
+  </dependencies>
+  <providesextension>shlex</providesextension>
+  <extsrcrelease />
+</package>
