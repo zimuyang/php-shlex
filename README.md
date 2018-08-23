@@ -7,7 +7,7 @@ Shlex is a PHP extension written in C. This extension implements the functionali
 The Shlex makes it easy to write lexical analyzers for simple syntaxes resembling that of the Unix shell. This will often be useful for writing minilanguages or for parsing quoted strings.
 
 # Table of contents
------
+
 1. [Requirement](#requirement)
 1. [Installation](#installation)
    * [Installation on Linux/OSX](#installation-on-linux-or-osx)
@@ -74,23 +74,19 @@ Windows system is currently not supported.
 
 
 # <span id="functions">Functions</span>
------
 
 
 ### <span id="shlex_split">shlex_split</span>
------
 
 Split the string s using shell-like syntax.
 
 ##### Description
--
 
 ```
 array shlex_split( string|resource|null $s [, bool $comments = false [, bool $posix = true ]] )
 ```
 
 ##### Parameters
--
 
 ###### s
 
@@ -109,12 +105,10 @@ Since the shlex_split() function instantiates a shlex instance, passing null for
 
 &nbsp;&nbsp;&nbsp;&nbsp;This function operates in POSIX mode by default, but uses non-POSIX mode if the posix argument is false.
 ##### Return Values
--
 
 Returns an array of split strings.
 
 ##### Examples
--
 
 ```
 <?php
@@ -139,12 +133,10 @@ array(1) {
 <br>
 
 ### <span id="shlex_quote">shlex_quote</span>
------
 
 Return a shell-escaped version of the string s.
 
 ##### Description
--
 
 ```
 string shlex_quote( string $s )
@@ -154,7 +146,6 @@ string shlex_quote( string $s )
 
 
 ##### Parameters
--
 
 ###### s
 
@@ -162,12 +153,10 @@ string shlex_quote( string $s )
 
 
 ##### Return Values
--
 
 The returned value is a string that can safely be used as one token in a shell command line, for cases where you cannot use a list.
 
 ##### Examples
--
 
 ```
 <?php
@@ -203,18 +192,14 @@ ssh home 'ls -l '"'"'somefile; rm -rf index.php'"'"''
 
 
 # <span id="classes-and-methods">Classes and methods</span>
------
 
 ### <span id="shlex">Shlex</span>
------
 
 ##### Introduction
--
 
 A Shlex instance or subclass instance is a lexical analyzer object.
 
 ##### Class synopsis
--
 
 ```
 Shlex implements Iterator {
@@ -274,7 +259,6 @@ Shlex implements Iterator {
 
 
 #### <span id="shlex-properties">Properties</span>
--
 
 ###### <span id="shlex-instream">instream</span>
 
@@ -338,24 +322,20 @@ Shlex implements Iterator {
 &nbsp;&nbsp;&nbsp;&nbsp;Characters that will be considered punctuation. Runs of punctuation characters will be returned as a single token. However, note that no semantic validity checking will be performed: for example, ‘>>>’ could be returned as a token, even though it may not be recognised as such by shells.
 
 ### <span id="shlex-methods">Methods</span>
-----
 
 
 
 ### <span id="shlex-__construct">Shlex::__construct</span>
------
 
 Constructor
 
 ##### Description
--
 
 ```
 public void function Shlex::__construct( [ string|resource|null $instream = null [, string|null $infile = null [, bool $posix = false [, string|bool|null $punctuationChars = false ]]]])
 ```
 
 ##### Parameters
--
 
 ###### instream
 
@@ -372,13 +352,12 @@ public void function Shlex::__construct( [ string|resource|null $instream = null
 ###### punctuationChars
 
 &nbsp;&nbsp;&nbsp;&nbsp;The punctuationChars argument provides a way to make the behaviour even closer to how real shells parse. This can take a number of values: the default value, false. If set to true, then parsing of the characters ();<>|& is changed: any run of these characters (considered punctuation characters) is returned as a single token. If set to a non-empty string of characters, those characters will be used as the punctuation characters. Any characters in the wordchars attribute that appear in punctuationChars will be removed from wordchars. 
+
 ##### Return Values
--
 
 No value is returned.
 
 ##### Examples
--
 
 ```
 <?php
@@ -419,12 +398,11 @@ array(6) {
 
 
 ### <span id="shlex-__destruct">Shlex::__destruct</span>
------
+
 
 Destructor
 
 ##### Description
--
 
 ```
 public void function Shlex::__destruct( void )
@@ -434,16 +412,14 @@ Used to release resource objects held by Shlex objects. Internally, fclose( ) is
 
 
 ##### Parameters
--
+
 No parameters.
 
 ##### Return Values
--
 
 No value is returned.
 
 ##### Examples
--
 
 No examples.
 
@@ -451,29 +427,24 @@ No examples.
 
 
 ### <span id="shlex-key">Shlex::key</span>
------
 
 There is no practical use for the key method of the Iterator interface.
 
 ##### Description
--
 
 ```
 public void function Shlex::key( void )
 ```
 
 ##### Parameters
--
 
 No parameters.
 
 ##### Return Values
--
 
 No value is returned.
 
 ##### Examples
--
 
 No examples.
 
@@ -481,29 +452,24 @@ No examples.
 
 
 ### <span id="shlex-next">Shlex::next</span>
------
 
 There is no practical use for the next method of the Iterator interface.
 
 ##### Description
--
 
 ```
 public void function Shlex::next( void )
 ```
 
 ##### Parameters
--
 
 No parameters.
 
 ##### Return Values
--
 
 No value is returned.
 
 ##### Examples
--
 
 No examples.
 
@@ -511,29 +477,24 @@ No examples.
 
 
 ### <span id="shlex-rewind">Shlex::rewind</span>
------
 
 There is no practical use for the rewind method of the Iterator interface.
 
 ##### Description
--
 
 ```
 public void function Shlex::rewind( void )
 ```
 
 ##### Parameters
--
 
 No parameters.
 
 ##### Return Values
--
 
 No value is returned.
 
 ##### Examples
--
 
 No examples.
 
@@ -541,29 +502,24 @@ No examples.
 
 
 ### <span id="shlex-current">Shlex::current</span>
------
 
 Returns the token value read by Shlex this iteration.
 
 ##### Description
--
 
 ```
 public string|null function Shlex::current( void )
 ```
 
 ##### Parameters
--
 
 No parameters.
 
 ##### Return Values
--
 
 Returns the token value read by Shlex this iteration.
 
 ##### Examples
--
 
 No examples.
 
@@ -571,24 +527,20 @@ No examples.
 
 
 ### <span id="shlex-valid">Shlex::valid</span>
------
 
 Determine if this iteration is valid.
 
 ##### Description
--
 
 ```
 public bool function Shlex::valid( void )
 ```
 
 ##### Parameters
--
 
 No parameters.
 
 ##### Return Values
--
 
 Valid if true is returned, false is invalid.
 
@@ -598,7 +550,6 @@ Due to the implementation of this class, iteratively reading the next element is
 ```
 
 ##### Examples
--
 
 No examples.
 
@@ -606,31 +557,26 @@ No examples.
 
 
 ### <span id="shlex-push-token">Shlex::pushToken</span>
------
 
 Push the argument onto the token stack.
 
 ##### Description
--
 
 ```
 public void function Shlex::pushToken( string $tok )
 ```
 
 ##### Parameters
--
 
 ###### tok
 
 &nbsp;&nbsp;&nbsp;&nbsp;The parameter being pushed.
 
 ##### Return Values
--
 
 No value is returned.
 
 ##### Examples
--
 
 No examples.
 
@@ -638,19 +584,16 @@ No examples.
 
 
 ### <span id="shlex-push-source">Shlex::pushSource</span>
------
 
 Push an input source stream onto the input stack.
 
 ##### Description
--
 
 ```
 public void function Shlex::pushSource( string|resource $newstream, string|null $newfile = null );
 ```
 
 ##### Parameters
--
 
 ###### newstream
 
@@ -663,12 +606,10 @@ public void function Shlex::pushSource( string|resource $newstream, string|null 
 
 
 ##### Return Values
--
 
 No value is returned.
 
 ##### Examples
--
 
 No examples.
 
@@ -676,29 +617,24 @@ No examples.
 
 
 ### <span id="shlex-pop-source">Shlex::popSource</span>
------
 
 Pop the last-pushed input source from the input stack. This is the same method used internally when the lexer reaches EOF on a stacked input stream.
 
 ##### Description
--
 
 ```
 public void function Shlex::popSource( void )
 ```
 
 ##### Parameters
--
 
 No parameters.
 
 ##### Return Values
--
 
 No value is returned.
 
 ##### Examples
--
 
 No examples.
 
@@ -706,29 +642,24 @@ No examples.
 
 
 ### <span id="shlex-get-token">Shlex::getToken</span>
------
 
 Return a token. 
 
 ##### Description
--
 
 ```
 public string|null|ShlexException function Shlex::getToken( void )
 ```
 
 ##### Parameters
--
 
 No parameters.
 
 ##### Return Values
--
 
 If tokens have been stacked using pushToken(), pop a token off the stack. Otherwise, read one from the input stream. If reading encounters an immediate end-of-file, eof is returned (the empty string ('') in non-POSIX mode, and null in POSIX mode).
 
 ##### Examples
--
 
 No examples.
 
@@ -736,12 +667,10 @@ No examples.
 
 
 ### <span id="shlex-read-token">Shlex::readToken</span>
------
 
 Read a raw token.
 
 ##### Description
--
 
 ```
 public string|null|ShlexException function Shlex::readToken( void )
@@ -751,17 +680,14 @@ Read a raw token. Ignore the pushback stack, and do not interpret source request
 
 
 ##### Parameters
--
 
 No parameters.
 
 ##### Return Values
--
 
 Return a raw token.
 
 ##### Examples
--
 
 No examples.
 
@@ -769,12 +695,9 @@ No examples.
 
 
 ### <span id="shlex-sourcehook">Shlex::sourcehook</span>
------
-
 
 
 ##### Description
--
 
 ```
 public array function Shlex::sourcehook( string $newfile )
@@ -791,19 +714,16 @@ This hook is exposed so that you can use it to implement directory search paths,
 For more explicit control of source stacking, use the pushSource() and popSource() methods.
 
 ##### Parameters
--
 
 ###### newfile
 
 &nbsp;&nbsp;&nbsp;&nbsp;file path.
 
 ##### Return Values
--
 
 Return a array of a filename and an open file-like object.
 
 ##### Examples
--
 
 No examples.
 
@@ -811,12 +731,10 @@ No examples.
 
 
 ### <span id="shlex-error-leader">Shlex::errorLeader</span>
------
 
 Return an error message leader in the format of a Unix C compiler error label.
 
 ##### Description
--
 
 ```
 public string function Shlex::errorLeader( string $infile = null, int|null $lineno = null )
@@ -827,7 +745,6 @@ This method generates an error message leader in the format of a Unix C compiler
 This convenience is provided to encourage Shlex users to generate error messages in the standard, parseable format understood by Emacs and other Unix tools.
 
 ##### Parameters
--
 
 ###### infile
 
@@ -838,12 +755,10 @@ This convenience is provided to encourage Shlex users to generate error messages
 &nbsp;&nbsp;&nbsp;&nbsp;The current input line number.
 
 ##### Return Values
--
 
 Return an error message leader in the format of a Unix C compiler error label.
 
 ##### Examples
--
 
 No examples.
 
@@ -851,24 +766,20 @@ No examples.
 
 
 ### <span id="shlex-exception">ShlexException</span>
------
 
 Shlex's exception class
 
 ##### Introduction
--
 
 This class is primarily used for exceptions thrown when the Shlex class internally performs an error.
 
 ##### Class synopsis
--
 
 ```
 ShlexException extends Exception {}
 ```
 
 ##### Examples
--
 
 ```
 <?php
