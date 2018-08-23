@@ -83,7 +83,7 @@ Windows system is currently not supported.
 Split the string s using shell-like syntax.
 
 ##### Description
--
+--
 
 ```
 array shlex_split( string|resource|null $s [, bool $comments = false [, bool $posix = true ]] )
