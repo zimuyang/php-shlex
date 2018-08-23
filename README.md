@@ -18,41 +18,41 @@ The Shlex makes it easy to write lexical analyzers for simple syntaxes resemblin
 1. [Classes and methods](#classes-and-methods)
    * [Shlex](#shlex)
       * [Properties](#shlex-properties)
-		   * [instream](#shlex-instream)
-		   * [infile](#shlex-infile)
-		   * [posix](#shlex-posix)
-		   * [eof](#shlex-eof)
-		   * [commenters](#shlex-commenters)
-		   * [wordchars](#shlex-wordchars)
-		   * [whitespace](#shlex-whitespace)
-		   * [whitespaceSplit](#shlex-whitespace-split)
-		   * [quotes](#shlex-quotes)
-		   * [escape](#shlex-escape)
-		   * [escapedquotes](#shlex-escapedquotes)
-		   * [state](#shlex-state)
-		   * [pushback](#shlex-pushback)
-		   * [lineno](#shlex-lineno)
-		   * [debug](#shlex-debug)
-		   * [token](#shlex-token)
-		   * [filestack](#shlex-filestack)
-		   * [source](#shlex-source)
-		   * [punctuationChars](#shlex-punctuation-chars)
-		   * [_punctuationChars](#shlex-_punctuation-chars)
+       * [instream](#shlex-instream)
+       * [infile](#shlex-infile)
+       * [posix](#shlex-posix)
+       * [eof](#shlex-eof)
+       * [commenters](#shlex-commenters)
+       * [wordchars](#shlex-wordchars)
+       * [whitespace](#shlex-whitespace)
+       * [whitespaceSplit](#shlex-whitespace-split)
+       * [quotes](#shlex-quotes)
+       * [escape](#shlex-escape)
+       * [escapedquotes](#shlex-escapedquotes)
+       * [state](#shlex-state)
+       * [pushback](#shlex-pushback)
+       * [lineno](#shlex-lineno)
+       * [debug](#shlex-debug)
+       * [token](#shlex-token)
+       * [filestack](#shlex-filestack)
+       * [source](#shlex-source)
+       * [punctuationChars](#shlex-punctuation-chars)
+       * [_punctuationChars](#shlex-_punctuation-chars)
       * [Methods](#shlex-methods)
-		   * [Shlex::__construct](#shlex-__construct)
-		   * [Shlex::__destruct](#shlex-__destruct)
-		   * [Shlex::key](#shlex-key)
-		   * [Shlex::next](#shlex-next)
-		   * [Shlex::rewind](#shlex-rewind)
-		   * [Shlex::current](#shlex-current)
-		   * [Shlex::valid](#shlex-valid)
-		   * [Shlex::pushToken](#shlex-push-token)
-		   * [Shlex::pushSource](#shlex-push-source)
-		   * [Shlex::popSource](#shlex-pop-source)
-		   * [Shlex::getToken](#shlex-get-token)
-		   * [Shlex::readToken](#shlex-read-token)
-		   * [Shlex::sourcehook](#shlex-sourcehook)
-		   * [Shlex::errorLeader](#shlex-error-leader)
+       * [Shlex::__construct](#shlex-__construct)
+       * [Shlex::__destruct](#shlex-__destruct)
+       * [Shlex::key](#shlex-key)
+       * [Shlex::next](#shlex-next)
+       * [Shlex::rewind](#shlex-rewind)
+       * [Shlex::current](#shlex-current)
+       * [Shlex::valid](#shlex-valid)
+       * [Shlex::pushToken](#shlex-push-token)
+       * [Shlex::pushSource](#shlex-push-source)
+       * [Shlex::popSource](#shlex-pop-source)
+       * [Shlex::getToken](#shlex-get-token)
+       * [Shlex::readToken](#shlex-read-token)
+       * [Shlex::sourcehook](#shlex-sourcehook)
+       * [Shlex::errorLeader](#shlex-error-leader)
    * [ShlexException](#shlex-exception)
 
 
@@ -203,9 +203,9 @@ A Shlex instance or subclass instance is a lexical analyzer object.
 
 ```
 Shlex implements Iterator {
-	
-	/* Properties */
-	public resource|null $instream = null;
+  
+  /* Properties */
+  public resource|null $instream = null;
     public string|null $infile = null;
     private bool|null $posix = null;
     public string|null $eof = null;
@@ -225,9 +225,9 @@ Shlex implements Iterator {
     public string|null $source = null;
     public string|null $punctuationChars = null;
     private array|null $_punctuationChars = null;
-	
-	/* Methods */
-	public void function __construct( [ string|resource|null $instream = null [, string|null $infile = null [, bool $posix = false [, string|bool|null $punctuationChars = false ]]]]);
+  
+  /* Methods */
+  public void function __construct( [ string|resource|null $instream = null [, string|null $infile = null [, bool $posix = false [, string|bool|null $punctuationChars = false ]]]]);
 
     public void function __destruct( void );
 
@@ -367,7 +367,7 @@ $instance = new Shlex("a && b || c", null, false, "|");
 $list = [];
 
 foreach ($instance as $value) {
-	$list[] = $value;
+  $list[] = $value;
 }
 
 var_dump($list);
@@ -784,7 +784,7 @@ ShlexException extends Exception {}
 ```
 <?php
 
-	throw new ShlexException('No escaped character');
+  throw new ShlexException('No escaped character');
 
 ?>
 ```
